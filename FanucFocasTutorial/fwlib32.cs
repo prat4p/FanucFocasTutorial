@@ -2531,12 +2531,12 @@ public class Focas1
         public int[]   g_modal;    /* G code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public char[]  g_dp;       /* #7:1 Block */
-                                   /* #6Å`#0 dp*/
+                                   /* #6¬Å`#0 dp*/
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public int[]   a_modal;    /* B,D,E,F,H,M,N,O,S,T code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public char[]  a_dp;       /* #7:1 Block */
-                                   /* 6Å`#0 dp*/
+                                   /* 6¬Å`#0 dp*/
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
         public int[]   abs_pos;    /* Abs pos */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
@@ -2575,12 +2575,12 @@ public class Focas1
         public int[]   g_modal;    /* G code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public char[]  g_dp;       /* #7:1 Block */
-                                   /* #6Å`#0 dp*/
+                                   /* #6¬Å`#0 dp*/
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public int[]   a_modal;    /* B,D,E,F,H,M,N,O,S,T code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public char[]  a_dp;       /* #7:1 Block */
-                                   /* 6Å`#0 dp*/
+                                   /* 6¬Å`#0 dp*/
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
         public int[]   abs_pos;    /* Abs pos */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
@@ -3015,11 +3015,11 @@ public class Focas1
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public int[]   g_modal;        /* G code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
-        public byte[]  g_dp;           /* #7:1 Block  #6Å`#0 dp */
+        public byte[]  g_dp;           /* #7:1 Block  #6¬Å`#0 dp */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
         public int[]   a_modal;        /* B,D,E,F,H,M,N,O,S,T code Modal */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=10)]
-        public byte[]  a_dp;           /* #7:1 Block  #6Å`#0 dp */
+        public byte[]  a_dp;           /* #7:1 Block  #6¬Å`#0 dp */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
         public int[]   abs_pos;        /* Abs pos */
         [MarshalAs(UnmanagedType.ByValArray,SizeConst=32)]
@@ -7679,7 +7679,7 @@ public class Focas1
 /* DS : Data server & Ethernet board function    */
 /*-----------------------------------------------*/
 
-    /* etb_rdparam : readÅ@the parameter of the Ethernet board  */
+    /* etb_rdparam : read¬Å@the parameter of the Ethernet board  */
     /* etb_wrparam : write the parameter of the Ethernet board  */
 
     [StructLayout(LayoutKind.Sequential,Pack=4)]
@@ -8331,6 +8331,10 @@ public class Focas1
     /* read program name under execution */
     [DllImport("FWLIB32.dll", EntryPoint="cnc_exeprgname")]
     public static extern short cnc_exeprgname( ushort FlibHndl, [Out,MarshalAs(UnmanagedType.LPStruct)] ODBEXEPRG a );
+
+    /*read program path*/
+    [DllImport("FWLIB32.dll", EntryPoint = "cnc_exeprgname2")]
+    public static extern short cnc_exeprgname2(ushort FlibHndl, [Out,MarshalAs(UnmanagedType.AsAny)] Object path_name);
 
     /* read sequence number under execution */
     [DllImport("FWLIB32.dll", EntryPoint="cnc_rdseqnum")]
